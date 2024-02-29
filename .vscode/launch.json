@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "showDevDebugOutput": "parsed",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/${workspaceRootFolderName}.elf",
+            "name": "Debug STM32",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "CMake: build",
+            "configFiles": [
+                "openocd.cfg"
+            ],
+        },
+        {
+            "showDevDebugOutput": "parsed",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/${workspaceRootFolderName}.elf",
+            "name": "Attach STM32",
+            "request": "attach",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "CMake: build",
+            "configFiles": [
+                "openocd.cfg"
+            ],
+        }
+    ]
+}

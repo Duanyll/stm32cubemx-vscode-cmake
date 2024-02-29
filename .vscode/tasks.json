@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Flash STM32",
+            "type": "process",
+            "command": "openocd",
+            "args": [
+                "-f",
+                "./openocd.cfg",
+                "-c",
+                "program build/${workspaceRootFolderName}.elf verify reset exit"
+            ],
+            "dependsOn": [
+                "CMake: build"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "type": "cmake",
+            "label": "CMake: build",
+            "command": "build",
+            "targets": [
+                "all"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "detail": "CMake template build task"
+        }
+    ]
+}
