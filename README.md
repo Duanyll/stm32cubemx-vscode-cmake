@@ -8,13 +8,14 @@ Please install these tools and add them to `path`. On Windows, it is suggested t
 
 - `gcc-arm-none-eabi`
 - `openocd`
+- `cmake`
 - `llvm` (For `clangd` and `clang-format`)
 - `ninja` (For faster build speed)
 
 Install these software from st.com:
 
-- STM32CubeProgrammer (For ST-LINK drivers and utilties)
 - STM32CubeMX
+- STM32CubeProgrammer (For ST-LINK drivers and utilties)
 
 Also install these VSCode extensions:
 

@@ -2,5 +2,7 @@
     "clangd.arguments": [
         "-query-driver=*",
         "-clang-tidy",
-    ]
+    ],
+    "cmake.generator": "Ninja",
+    "C_Cpp.intelliSenseEngine": "disabled",
 }
