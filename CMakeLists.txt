@@ -40,7 +40,7 @@ endfunction()
 function(extract_makefile_list var_name out_list leading remove_leading)
     extract_makefile_variable(${var_name} temp)
     # Split the list into items by spaces 
-    string(REPLACE " " ";" temp ${temp})
+    string(REPLACE " " ";" temp "${temp}")
     # Filter out items that don't start with `leading`
     set(output "")
     foreach(item ${temp})
@@ -106,6 +106,8 @@ endif()
 
 extract_makefile_list("LIBS" libs "-l" TRUE)
 print_list(libs)
+extract_makefile_list("LIBDIR" libdirs "-L" TRUE)
+print_list(libdirs)
 
 # --------------------------------- CMSIS-DSP -------------------------------- #
 # Example of using CMSIS-DSP library on CM7 devices. Uncomment the following lines to use CMSIS-DSP.
@@ -146,9 +148,10 @@ include_directories(${c_includes})
 # Add extra include paths here
 
 # ------------------------------- Executable --------------------------------- #
-add_executable(${project_name}.elf ${all_sources} ${ld_script})
+link_directories(${libdirs})
+link_libraries(${libs})
 
-target_link_libraries(${project_name}.elf ${libs})
+add_executable(${project_name}.elf ${all_sources} ${ld_script})
 
 set(hex_file ${PROJECT_BINARY_DIR}/${project_name}.hex)
 set(bin_file ${PROJECT_BINARY_DIR}/${project_name}.bin)
