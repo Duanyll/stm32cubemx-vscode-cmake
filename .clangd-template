@@ -1,0 +1,6 @@
+CompileFlags:
+  Compiler: %COMPILER%
+
+Diagnostics:
+  UnusedIncludes: None
+  MissingIncludes: None
